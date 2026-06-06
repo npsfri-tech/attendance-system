@@ -19,6 +19,15 @@ const io = socketIo(server, { cors: { origin: '*' } });
 app.use(cors());
 app.use(express.json());
 
+const path = require('path');
+
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+
 // Database Connection
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
