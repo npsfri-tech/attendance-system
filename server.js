@@ -19,6 +19,10 @@ const io = socketIo(server, { cors: { origin: '*' } });
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('Attendance System Backend Running');
+});
+
 const path = require('path');
 
 app.use(express.static(__dirname));
