@@ -29,7 +29,12 @@ app.get('/', (req, res) => {
 
 
 // Database Connection
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
 
 // API Routes
 
